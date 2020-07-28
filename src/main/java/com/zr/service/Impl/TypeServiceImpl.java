@@ -14,8 +14,22 @@ public class TypeServiceImpl implements TypeService {
     @Autowired
     private TypeDao typeDao;
 
-    @Override
+
     public Page<Type> listType(Pageable pageable) {
         return typeDao.findAll(pageable);
     }
+
+    public void deleteById(Long id) {
+        typeDao.deleteById(id);
+    }
+
+    public Type findById(Long id) {
+        return typeDao.getOne(id);  //展现新增
+    }
+
+    public void input(Type type) {
+        typeDao.save(type);
+    }
+
+
 }
